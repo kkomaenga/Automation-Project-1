@@ -8,7 +8,7 @@ Assignement 4: add content to the following tests
 
 describe('Section 1: Functional tests', () => {
 
-    it('User can use only same both first and validation passwords', ()=>{
+    it.only('User can use only same both first and validation passwords', ()=>{
         // Add test steps for filling in only mandatory fields
         cy.get('#username').type('AlinaA')
         cy.get('#email').type('testing@email.com')
@@ -33,7 +33,6 @@ describe('Section 1: Functional tests', () => {
         //Modify test, the same values in the password and confirmation password input fields
         cy.get('[name="confirm"]').clear().type('1234567890Password')
         cy.get('h2').contains('Password').click()
-        cy.get('#username').click()
         
         cy.get('.submit_button').should('be.enabled')
         cy.get('.submit_button').click()
@@ -229,7 +228,7 @@ describe('Section 2: Visual tests', () => {
     // Create test similar to previous one
  
     it('Animals dropdown is correct', () => {
-        cy.get('#animal').select(1).screenshot('Cars drop-down')
+        cy.get('#animal').select(1).screenshot('Animals drop-down')
         cy.screenshot('Full page screenshot')
 
         // Checking both solutions
